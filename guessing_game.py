@@ -1,37 +1,28 @@
-"""
-Python Web Development Techdegree
-Project 1 - Number Guessing Game
---------------------------------
-
-For this first project we will be using Workspaces. 
-
-NOTE: If you strongly prefer to work locally on your own computer, you can totally do that by clicking: File -> Download Workspace in the file menu after you fork the snapshot of this workspace.
-
-"""
-
 import random
 
+username = input("Hi, what should we call you? ")
+print(f"Alright, {username}, welcome to DryPy's Guessing Game!")
 
 def start_game():
-    """Psuedo-code Hints
+    number_to_guess = random.randrange(1, 11)
+    guess_count = 1
+    guess = None
     
-    When the program starts, we want to:
-    ------------------------------------
-    1. Display an intro/welcome message to the player.
-    2. Store a random number as the answer/solution.
-    3. Continuously prompt the player for a guess.
-      a. If the guess greater than the solution, display to the player "It's lower".
-      b. If the guess is less than the solution, display to the player "It's higher".
-    
-    4. Once the guess is correct, stop looping, inform the user they "Got it"
-         and show how many attempts it took them to get the correct number.
-    5. Let the player know the game is ending, or something that indicates the game is over.
-    
-    ( You can add more features/enhancements if you'd like to. )
-    """
-    # write your code inside this function.
-
-
-
-# Kick off the program by calling the start_game function.
+    while guess != number_to_guess:
+        try:
+            guess = int(input("I am thinking of a number between 1-10, what's your guess? "))
+            if guess < number_to_guess:
+                print("Your guess was lower then the secret number")
+                guess_count += 1
+            elif guess > number_to_guess:
+                print("Your guess was higher then the secret number")
+                guess_count += 1
+            else: 
+                print(f"Whoa, {username}! You got it right!")
+                print(f"It took you {guess_count} trys to get the right answer.")
+                print("See you next ime!")
+                break
+        except ValueError:
+            print("Hmm, that doesn't look like a number between 1-10")
+            
 start_game()
