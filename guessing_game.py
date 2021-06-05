@@ -11,6 +11,9 @@ def start_game():
     while guess != number_to_guess:
         try:
             guess = int(input("I am thinking of a number between 1-10, what's your guess? "))
+        except ValueError:
+            print("Hmm, that doesn't look like a number between 1-10")
+        elif:
             if guess < number_to_guess:
                 print("Your guess was lower then the secret number")
                 guess_count += 1
@@ -22,7 +25,5 @@ def start_game():
                 print(f"It took you {guess_count} trys to get the right answer.")
                 print("See you next ime!")
                 break
-        except ValueError:
-            print("Hmm, that doesn't look like a number between 1-10")
             
 start_game()
